@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.login_register_ui"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.login_register_ui"
@@ -66,4 +66,7 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation (libs.text.recognition)
+    //Navigation
+    implementation(libs.androidx.navigation.compose)
 }
