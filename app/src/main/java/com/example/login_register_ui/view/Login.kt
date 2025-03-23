@@ -28,6 +28,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -93,8 +94,7 @@ fun LoginPage(
             }
             Spacer(modifier = Modifier.padding(20.dp))
             Scaffold(
-                modifier = Modifier.fillMaxSize(),
-
+                modifier = Modifier.fillMaxSize().background(White),
             ) { innerPadding ->
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -102,7 +102,7 @@ fun LoginPage(
                     modifier = Modifier
                         .padding(innerPadding)
                         .fillMaxWidth()
-                        .background(Color.White),
+                        .background(White),
                 ) {
                     Text(
                         text = "Sign In",
@@ -114,7 +114,8 @@ fun LoginPage(
                     )
                     Spacer(modifier = Modifier.padding(20.dp))
                     Column(
-                        horizontalAlignment = Alignment.CenterHorizontally
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.background(White)
                     ) {
                         OutlinedTextField(
                             value = emailVal.value,
@@ -156,6 +157,13 @@ fun LoginPage(
                                 ),
                             onClick = {
                                 when {
+                                    passwordVal.value.isEmpty() && emailVal.value.isEmpty() -> {
+                                        Toast.makeText(
+                                            context,
+                                            "please enter email address and password",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
                                     emailVal.value.isEmpty() -> {
                                         Toast.makeText(
                                             context,

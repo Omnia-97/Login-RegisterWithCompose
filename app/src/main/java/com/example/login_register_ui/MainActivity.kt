@@ -10,6 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.login_register_ui.ui.theme.LoginRegisterUiTheme
 import com.example.login_register_ui.view.LoginPage
+import com.example.login_register_ui.view.Register
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,7 @@ fun NavigatePage() {
                 content = {
                     LoginPage(navController = navController)
                 })
+            composable("register_page", content = { Register(navController = navController) })
         }
     )
 }
